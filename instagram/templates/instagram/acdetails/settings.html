@@ -1,0 +1,89 @@
+{% extends "instagram/acdetails/base.html" %}
+
+
+{% block style %}
+    <style>
+        .divform{
+            position: relative;
+            left: 300px;
+            width: 50vh;
+        }
+         .settingsdiv{
+            background-color: lightgray;
+            width: 300px;
+            height: 500px;
+            border-radius: 1rem;
+        }
+        input[type='text']{
+            position: relative;
+            right: 70px;
+            top: 100px;
+            height: 25px;
+            border-radius: 2rem;
+            border: 1px solid lightgray;
+
+        }
+        .editfullname{
+            position: relative;
+            left: 10px;
+            top: 40px;
+        }
+        label{
+            position: relative;
+            top: 130px;
+            left: 10px;
+        }
+        input[type='submit']{
+            position: relative;
+            top: 200px;
+            left: 100px;
+            color: whitesmoke;
+            background-color: #246fdf;
+            width: 80px;
+            height: 30px;
+            border: 1px solid lightgray;
+            border-radius: 2rem;
+            cursor: pointer;
+        }
+         
+        input[type='submit']:hover{
+            color: white;
+            background-color: #1b5bbb;
+        }
+        @media (max-width:770px) {
+            .divform{
+                position: relative;
+                left: 100px;
+                width: 50vh;
+            }
+        }
+        @media (max-width:550px) {
+            .divform{
+                position: relative;
+                left: 20px;
+                width: 50vh;
+            }
+        }
+    </style>
+{% endblock style %}
+
+{% block body %}
+
+<div class="divform">
+    <form action="" method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        <h4>Edit Profile</h4>
+        <div class="settingsdiv">
+            <a href="#"><img src="/media/{{ userdata.image}}" style="width: 70px; height: 70px; border-radius: 18rem; position: relative; top: 15px; left: 10px;"></a> 
+            <input type="text" name="fullname" id="fullname" value="{{userdata.fullname}}">
+            <div class="editfullname">Edit Your Full Name</div>        
+            <label for="image">Choose Profile Photo</label>
+            <input type="file" name="image" id="image" style="width: 130px; border-radius: 2rem;  position: relative; right: 130px; top: 160px; background-color: #246fdf; " value="{{userdata.image}}">
+            <input type="submit" name="" id="">
+
+        </div>
+    </form>
+    
+</div>
+
+{% endblock body %}

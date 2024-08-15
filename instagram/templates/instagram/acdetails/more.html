@@ -1,0 +1,53 @@
+{% extends "instagram/acdetails/base.html" %}
+
+{% block style %}
+    <style>
+        .more{
+            border: 1px solid lightgray;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            left: 45vh;
+            top: 55vh;
+            padding: 30px;
+            gap: 30px;
+            text-align: center;
+            width: 250px;
+            height: 200px;
+            background-image: linear-gradient(lightgreen,#171717);
+            border-radius: 2rem;
+        }
+        .more .a{
+            border: none;
+            margin-left: 25px;
+            margin-right: 25px;
+            height: 20px;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            border-radius: 1rem;
+        }
+         .a:hover{
+            background-color: lightgray;
+            color: #171717;
+            opacity: 0.6;
+            border-radius: 1rem;
+
+        }
+        @media (max-width:770px) {
+            .more{
+            position: relative;
+            left: 5vh;
+            top: 45vh;
+        }
+        }
+    </style>
+{% endblock style %}
+
+{% block body %}
+<div class="more">
+    <a href="{% url "settings" %}" class="a">Settings</a>
+    <a href="{% url "insta" %}" class="a">Swich Account</a>
+    <a href="{% url "signout" %}" class="a">Log Out</a>
+</div>
+{% endblock body %}

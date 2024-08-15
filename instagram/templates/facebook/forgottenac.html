@@ -1,0 +1,253 @@
+{% comment %} This page is forgotten facebook account  page{% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgotten Password| can't Log in </title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static "img/icon.avif" %}">
+    <style>
+        .div1{
+            border-bottom: 1px solid lightgray;
+        }
+        .img{
+            width: 130px;
+            padding:5px 600px 0px 10px ;
+        }
+        .div1 input[type='text'],[type='password']{
+            width: 150px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+            position: relative;
+            bottom: 10px;
+        }
+        .div1 button{
+            padding: 10px;
+            position: relative;
+            bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+            background-color: #1B74E4;
+            color: white;
+            font-weight: 700;
+        }
+        .div1 a{
+            text-decoration: none;
+            position: relative;
+            bottom: 10px;
+            color: #216FDB;
+        }
+        .body{
+            height: 70vh;
+            background-color: #e9ebee;
+        }
+        .div2{
+            width: 75vh;
+            height: 40vh;
+            padding: 20px;
+            position: relative;
+            top: 80px;
+            left: 400px;
+            border-radius: 10px;
+            background-color: white;
+        }
+        .div2 h2{
+            padding-bottom: 10px;
+            font-size: 23px;
+            border-bottom: 1px solid lightgray;
+        }
+        .div2 div{
+            font-size: 19px;
+            padding-left: 5px;
+            opacity: 0.9;
+        }
+        .username{
+            padding: 15px;
+            width: 450px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            font-size: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .button{
+            position: relative;
+            border-top: 1px solid lightgray;
+            top: 8px;
+            padding-top: 10px;
+            /* left: 100px; */
+        }
+        .button button{
+            position: relative;
+            left: 325px;
+            margin-right: 5px;
+            padding: 8px 10px 8px 10px ;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+        }
+        .cancle{
+            background-color: #E4E6EB;
+            color: #4B4F56;
+            font-weight: 800;
+        }
+        .search{
+            background-color: #1877F2;
+            color: #FFFFFF;
+            font-weight: 800;
+        }
+        .all{
+            padding-left: 180px;
+            padding-right: 140px;
+            padding-top:140px ;
+            background-color: white;
+        }
+        .bottom{
+            text-decoration: none;
+            font-size: 12px;
+            margin:8px;
+            /* padding-left: 10px;
+            padding-top: 10px; */
+            color: #8a8d91;
+        }
+        .meta{
+            font-size: 11px;
+            color: #8a8d91;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-left: 185px;
+            background-color: white;
+
+        }
+        /* Media queries for responsiveness */
+        @media (max-width:940px) {
+            .div2{
+                    width: 50vh;
+                    height: 43vh;
+                    padding: 10px;
+                    position: relative;
+                    top: 80px;
+                    left: 10px;
+                }
+                .button button{
+                    position: relative;
+                    left: 130px;
+                    margin-right: 5px;
+                    padding: 8px 10px 8px 10px ;
+                    border: 1px solid lightgray;
+                    border-radius: 5px;
+                }
+            .username {
+                width: 80%;
+                max-width: none;
+            }
+
+            .all {
+                padding: 10px;
+            } 
+        }
+        @media (max-width: 768px) {
+            .div1 {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .img {
+                width: 80px; /* Adjust size for smaller screens */
+                padding: 10px 0;
+                margin-bottom: 10px;
+            }
+
+            .div1 input[type='text'],
+            .div1 input[type='password'] {
+                width: 100%; /* Full width inputs on smaller screens */
+                max-width: none;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .div1 button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            /* .div2 {
+                width: 100%;
+                max-width: none;
+                position: relative;
+                left: 0;
+            }
+
+            .email {
+                width: 100%;
+                max-width: none;
+            }
+
+            .all {
+                padding: 10px;
+            } */
+            
+        }
+    </style>
+</head>
+<body>
+    <form action="" method='post'>
+        {% csrf_token %}
+        <div class='div1'>
+            <img src="{% static "img/fblogo.png" %}" alt="Image Not Found" class='img'>
+            <input type="text" name="loginusername" id="loginusername" placeholder="Enter User Name..">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <button>Log In</button>
+            <a href="{% url "forgottenac" %} " target="_blank">Forgotten account?</a>
+        </div>
+        <div class="body">
+            <div class="div2">
+                <h2>Find Your Account</h2>
+                <div>
+                    Please enter your email address or mobile number to search for your account.
+                </div>
+                    <input type="text" name="username" id="username" class="username" placeholder="Enter User Name...">
+                   <div class="button">
+                       <button class="cancle">Cancle</button>
+                       <button  class="search">Search</button>
+                    </div>
+                </div>
+        </div>
+    </form>
+
+    <div class="all">
+        <a href="{% url "signupforfb" %}" class="bottom">Sign Up</a>
+        <a href="{% url "alreadyfacebookaccount" %}" class="bottom">Log in</a>
+        <a href="https://www.messenger.com/" class="bottom">Messenger</a>
+        <a href="https://www.facebook.com/lite/" class="bottom">Facebook Lite</a>
+        <a href="https://www.facebook.com/watch/" class="bottom">Video</a>
+        <a href="https://www.facebook.com/places/" class="bottom">Places</a>
+        <a href="https://www.facebook.com/gaming/play/" class="bottom">Games</a>
+        <a href="https://www.facebook.com/marketplace/" class="bottom">Marketplace</a>
+        <a href="https://about.meta.com/technologies/meta-pay/" target="_blank" class="bottom">Metaplay</a>
+        <a href="https://www.meta.com/" target="_blank" class="bottom">Meta Store</a>
+        <a href="https://www.meta.com/quest/" target="_blank" class="bottom">Meta Quest</a>
+        <a href="https://imagine.meta.com/" target="_blank" class="bottom">Imagine with Meta AI</a>
+        <a href="#" class="bottom">Istagram</a>
+        <a href="https://www.threads.net/login" class="bottom">Threads</a>
+        <a href="https://www.facebook.com/fundraisers/" class="bottom">Fundraisers</a>
+        <a href="https://www.facebook.com/biz/directory/" class="bottom">Services</a>
+        <a href="https://www.facebook.com/votinginformationcenter/" class="bottom">Voting Information Center</a>
+        <a href="https://www.facebook.com/privacy/policy/?entry_point=facebook_page_footer" class="bottom">Privacy Policy</a>
+        <a href="https://www.facebook.com/privacy/center/?entry_point=facebook_page_footer" class="bottom">Privacy Center</a>
+        <a href="https://www.facebook.com/groups/discover/" class="bottom">Groups</a>
+        <a href="https://about.meta.com/" class="bottom">About</a>
+        <a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fads%2Fcreate%2F%3Fnav_source%3Dunknown%26campaign_id%3D402047449186%" class="bottom">Create ad</a>
+        <a href="https://www.facebook.com/pages/create/?ref_type=site_footer" class="bottom">Create Page</a>
+        <a href="https://developers.facebook.com/?ref=pf" class="bottom">Developers</a>
+        <a href="https://www.metacareers.com/" class="bottom">Careers</a>
+        <a href="https://www.facebook.com/privacy/policies/cookies/?entry_point=cookie_policy_redirect&entry=0" class="bottom">Cookies</a>
+        <a href="https://www.facebook.com/help/568137493302217" class="bottom">AdChoices</a>
+        <a href="https://www.facebook.com/policies_center/" class="bottom">Terms</a>
+        <a href="https://www.facebook.com/help/?ref=pf" class="bottom">Help</a>
+        <a href="https://www.facebook.com/help/637205020878504" class="bottom">Contact uploading and non-users</a>
+    </div>
+    <div class="meta">Meta @ 2024</div>
+</body>
+</html>

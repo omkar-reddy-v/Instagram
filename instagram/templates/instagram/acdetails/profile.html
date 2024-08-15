@@ -1,0 +1,136 @@
+{% extends "instagram/acdetails/base.html" %}
+
+{% block style %}
+    <style>
+        .profileimg{
+            width: 100px;
+            height:100px;
+            position: relative;
+            left: 450px;
+            top: 50px;
+            border-radius: 18rem;
+            
+        }
+        .username{
+            text-decoration: none;
+            position: relative;
+            left: 90vh;
+            bottom: 10px;
+            color: black;
+            font-size: 20px;
+        }
+        button{
+            border: none;
+            background-color: lightgray;
+            width: 100px;
+            height: 30px;
+            border-radius: 1rem;
+            position: relative;
+            left: 100vh;
+            bottom: 17px;
+            cursor: pointer;
+        }
+        .photodiv{
+            display: flex; flex-direction: column; width: 250px; position: relative; left: 30%; top: 150px;
+        }
+        .videodiv{
+            display: flex; flex-direction: column;  position: relative; left: 45%; top: 130px;
+        }
+        @media (max-width:990px) {
+        .profileimg{
+            position: relative;
+            left: 280px;
+            top: 30px;            
+        }
+        .username{
+            position: relative;
+            left: 55vh;
+        }
+        button{
+            position: relative;
+            left: 60vh;
+        }
+        .photodiv{
+            width: 150px; position: relative; left: 30%; top: 150px;
+        }
+        .videodiv{
+             position: relative; left: 40%; top: 130px;
+        }
+        }
+        @media (max-width:880px) {
+        .photodiv{
+            width: 150px; position: relative; left: 35%; top: 150px;
+        }
+        .videodiv{
+             position: relative; left: 40%; top: 130px;
+        }  
+        }
+        @media (max-width:770px) {
+        .profileimg{
+            position: relative;
+            left: 10px;
+            top: 30px;            
+        }
+        .username{
+            position: relative;
+            left: 5vh;
+        }
+        button{
+            position: relative;
+            left: 10vh;
+        }
+        .photodiv{
+            width: 150px; position: relative; left: 0; top: 150px;
+            z-index: -1;
+        }
+        .videodiv{
+             position: relative; left: 30px; top: 150px;
+            z-index: -1;
+        }
+        }
+        @media (max-width:500px) {
+        .username{
+            position: relative;
+            left: -90px;
+            top: 55px;
+         }
+         button{
+            position: relative;
+            left: -10px;
+        }
+        }
+        @media (max-width:419px) {
+            button{
+            position: relative;
+            left: 250px;
+            }  
+        }
+    </style>
+{% endblock style %}
+
+
+{% block body %}
+{% load static %}
+
+<a href="#"><img src="/media/{{userdata.image}}" class="profileimg" ></a>
+<a href="#" class="username">{{userdata.fullname}}</a>
+
+<a href="{% url "settings" %}">
+    <button>Edit profile</button>
+</a>
+<div style='display: flex; '>
+
+    <div class="photodiv">
+        {% for photo in photos %}
+        <img src="/media/{{photo.image}}" alt="Photo"><br><br><br>
+        {% endfor %}
+    </div>
+    <div class="videodiv">
+        {% for video in videos %}
+            <video src="/media/{{video.video}}" width='200px' controls></video><br><br><br>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock body %}

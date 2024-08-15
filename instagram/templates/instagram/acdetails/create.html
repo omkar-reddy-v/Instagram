@@ -1,0 +1,112 @@
+{% extends "instagram/acdetails/base.html" %}
+
+{% block style %}
+    <style>
+        .form1{
+            width: 30vh;
+            border: 1px solid lightgray;
+            position: relative;
+            left: 50vh;
+            top: 10vh;
+            height: 20vh;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 2rem;
+            background-image: linear-gradient(lightgreen,#171717);
+            color: whitesmoke;
+        } 
+        .form1 input{
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .form2{
+            width: 30vh;
+            border: 1px solid lightgray;
+            background-image: linear-gradient(lightgreen,#171717);
+            color: whitesmoke;
+            position: relative;
+            left: 50vh;
+            top: 30vh;
+            height: 20vh;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 2rem;
+        }
+        .form2 input{
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        button{
+            cursor: pointer;
+            width: 100px;
+            height: 30px;
+            border: none;
+            margin-top: 20px;
+            border-radius: 1rem;
+            color: whitesmoke;
+            background-color: greenyellow;
+        }
+        button:hover{
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 2rem;
+        }
+        #messagetag{
+            color:green; position: relative; top: 100px; left: 360px; font-weight: 900;
+        }
+        /* Media queries for responsive design */
+        @media screen and (max-width: 770px) {
+            .form1, .form2 {
+                width: 30vh;
+                left: 20%; /* Adjust as needed */
+            }
+            .form2{
+            position: relative;
+            left: 20%;
+            top: 20vh;
+        }
+        #messagetag{
+            position: relative; left: 60px;
+        }
+        }
+
+        @media screen and (max-width: 550px) {
+            .form1, .form2 {
+                width: 30vh;
+                left: 20%; /* Adjust as needed */
+            }
+        }
+
+        @media screen and (max-width: 420px) {
+            .form1, .form2 {
+                width: 30vh;
+                left: 5%; /* Adjust as needed */
+            }
+        }
+    </style>
+{% endblock style %}
+
+
+{% block body %}
+
+<form action="" method='post' enctype="multipart/form-data" class="form1">
+    {% csrf_token %}
+    <label for="image">Choose Your Image</label>
+    <input type="file" name="image" id="image" required>
+    <button>upload</button>
+</form>
+{% if messages %}
+{% for message in messages %}
+    <span{% if message.tags %} class="{{ message.tags }}"{% endif %}  id="messagetag">{{ message }}</span>
+{% endfor %}
+{% endif %}
+<form action="" method="post" enctype="multipart/form-data" class="form2">
+    {% csrf_token %}  
+    <label for="video"> Choose a video</label>
+    <input type="file" name="video" id="video" accept="video/*" required>
+    <button>Upload</button>
+</form>
+
+
+{% endblock body %}

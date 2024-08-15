@@ -1,0 +1,34 @@
+{% extends "instagram/acdetails/base.html" %}
+
+{% block style %}
+    <style>
+        video{
+            position: relative;
+            top: 50px;
+            left: 20px;
+            z-index: -1;
+        }
+        .videodiv{
+            display: flex; flex-direction: column;   margin-left: 25%;
+        }
+        @media (max-width:550px) {
+        .video{
+            position: relative;
+            top: 50px;
+            left: 20px;
+        }
+        .videodiv{
+            margin-left: 70px;
+        }
+        }
+    </style>
+{% endblock style %}
+
+{% block body %}
+<div class="videodiv">
+    
+    {% for video in videos %}
+        <video src="/media/{{video.video}}" width='250px' height="400px" controls></video><br><br><br>
+    {% endfor %}
+</div>
+{% endblock body %}

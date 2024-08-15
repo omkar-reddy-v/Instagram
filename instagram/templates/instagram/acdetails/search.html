@@ -1,0 +1,115 @@
+{% extends "instagram/acdetails/base.html" %}
+
+{% block style %}
+<style>
+    body{
+          font-family: 'Times New Roman', Times, serif;
+    }
+    span{
+        font-size: 14px;
+        margin-left: 10px;
+
+    }
+    .searchdiv{
+        border: 1px solid lightgray;
+        position: relative;
+        left: 260px;
+        width: 65vh;
+        height: 98vh;
+        background-color: white;
+    }
+    .searchdiv button{
+        display: none;
+    }
+    .searchdiv h1{
+        padding-left: 10px;
+        padding-bottom: 20px;
+    }
+    .searchdiv input[type=search]{
+        border: 1px solid lightgray;
+        background-color: snow;
+        border-color: lightgray;
+        padding: 10px;
+        border-radius: 1rem;
+        width: 350px;
+    }
+    input[type=search]:hover{
+        border-color: lightsalmon;
+        box-shadow: 5px 5px 10px #29dff7, -5px -5px 10px #b11ff5;
+        /* text-shadow: 0 0 3px #000000; */
+    }
+    .username{
+        color: green;
+        font-weight: bolder;
+        text-decoration: none;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 25px;
+    }
+    .username:hover{
+        color: red;
+    }
+    @media (max-width:770px) {
+    .searchdiv{
+        position: relative;
+        left: 300px;
+        width: 55vh;
+        height: 85vh;
+    }
+    }
+    @media (max-width:700px) {
+    .searchdiv{
+        position: relative;
+        left: 40px;
+        width: 55vh;
+        height: 85vh;
+    }
+    }
+    @media (max-width:450px) {
+    .searchdiv{
+        position: relative;
+        left: 10px;
+        width: 50vh;
+        height: 89vh;
+    }
+    .searchdiv button{
+        display: block;
+        font-weight: bolder;
+        width: 100px;
+        height: 30px;
+        background-color: whitesmoke;
+        border: 1px solid lightgray;
+        margin-top: 20px;
+        margin-left: 150px;
+    }
+    .searchdiv button:hover{
+        background-color: green;
+    }
+    #q{
+        width: 250px;
+    }
+    }
+</style>
+{% endblock style %}
+
+{% block body %}
+
+<div class="searchdiv">
+    <h1>Search Users</h1>
+    <form action="{% url 'search' %}" method="GET">
+        <input type="search" name="q" id="q" placeholder="Search...">
+        <button>Search</button>
+    </form><br><br>
+    
+    {% if users %}
+        <span>Search Results for "{{ query }}": </span>
+            {% for user in users %}
+                <span>
+                    <a href="{% url 'user_profile' user.username %}" class="username">{{ user.username }}</a>
+                </span>
+            {% endfor %} 
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+
+</div>
+{% endblock body %}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static "img/icon.avif" %}">
+    {% block style %}
+    
+    {% endblock style %}
+<style>
+        .div{
+            border-right: 1px solid lightgray;
+            width: 39vh;
+            position: fixed;
+            height: 1000vh;    
+        }
+        .img{
+            width: 130px;
+            margin-top: 30px;
+            margin-left: 10px;
+            
+        }
+        .nav{
+            margin-top: 30px;
+            margin-left: 20px;
+            display: flex;
+            gap: 20px;
+            font-size: 23px;
+            flex-direction: column;
+        }
+        .nav a{
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+        }
+        .nav span{
+            margin-left: 10px;
+            color: black;
+            opacity: 0.9;
+            font-size: 20px;
+            margin-bottom: 5px;
+            position: relative;
+            bottom: 5px;
+        }
+        .nav a:hover{
+            background-color: #fafafa;
+            border-radius: 1rem;
+            margin-right:10px;
+        }
+        .bx:hover{
+            transform: scale(1.1);
+            transition: 1s;
+        }
+        @media (max-width: 770px) {
+            .div{
+                border-right: none;
+            }
+            .img {
+                display: none; /* Hide the image on smaller screens */
+            }
+    
+            .nav {
+                position: relative;
+                top: 85vh;
+                background-color: white;
+                gap: 30px;
+                margin-left: 0;
+                flex-direction: row; /* Change to row layout */
+                justify-content: space-around; /* Center align items horizontally */
+                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                width: 550px;
+                z-index: 1;
+            }
+    
+            .nav a {
+                padding: 8px; /* Adjust padding for smaller touch areas */
+                font-size: 18px; /* Decrease font size for smaller screens */
+                text-align: center; /* Center align text */
+            }
+    
+            .nav span {
+                display: none; /* Hide the span tags */
+            }
+        }
+        @media (max-width:550px) {
+            .nav{
+                width: 490px;
+            }
+            .nav a {
+                padding: 2.5px; /* Adjust padding for smaller touch areas */
+            }
+        }
+        @media (max-width:450px) {
+            .nav{
+                width: 390px;
+            }
+        }
+
+</style>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    {% block navbar %}
+    <div class="div">
+        {% load static %}
+        <a href="#">
+            <img src="{% static "img/insta1.jpg" %}" alt="No Image Found" class="img">
+        </a>
+        <div class="nav">
+            <a href="{% url "home" %}">
+                <i class='bx bx-home-alt-2'><span>Home</span></i>
+            </a>
+            <a href="{% url "search" %}">
+                <i class='bx bx-search-alt-2' ><span>Search</span></i>
+            </a>
+            <a href="{% url "reels" %}">
+                <i class='bx bx-movie-play'><span>Reels</span></i>
+            </a>
+            <a href="{% url "create" %}">
+                <i class='bx bx-plus-circle'><span>Create</span></i>
+            </a>
+            <a href="{% url "profile" %}">
+                <img src="/media/{{ userdata.image }}" style="width:17px; border-radius: 20rem;"><span>Profile</span>
+            </a>
+            <a href="{% url "more" %}"><i class='bx bx-menu'><span>More</span></i></a>
+        </div>
+    </div>
+    {% endblock navbar %}
+    {% block body %}
+    {% endblock body %}
+</body>
+</html>

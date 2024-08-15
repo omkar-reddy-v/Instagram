@@ -1,0 +1,126 @@
+{% extends "instagram/acdetails/base.html" %}
+
+{% block style %}
+<style>
+    .div1{
+        margin-left: 22%;
+        width: 100vh;
+        height: 95px;
+        border-bottom: 1px solid lightgray;
+    }
+    .div1 a{
+        text-decoration: none;
+        color: lightslategrey;
+        margin-right: 10px;
+        position: relative;
+        top: 65px;
+    }
+    .photo {
+        position: relative;
+        top: 30px;
+        margin-left: 50vh;
+        border: 1px solid lightgray;
+        width: 80px;
+        height:80px;
+        border-radius: 18rem;
+    }
+    .photo2{
+        border: 1px solid lightgray;
+        width: 80px;
+        height:80px;
+        border-radius: 18rem;
+        position: relative;
+        top: 30px;
+        left: 90vh;
+    }
+    .username{
+        text-decoration: none;
+        color: black;
+        position: relative;
+        left: 90vh;
+    }
+    .logout{
+        text-decoration: none;
+        position: relative;
+        left: 100vh;
+    }
+    .videodiv{
+        display: flex;
+        flex-direction: column;  
+        margin-left: 330px;
+        margin-top: 100px;
+
+    }
+    @media (max-width:990px) {
+    .div1{
+        display: none;
+    }
+    .photo{
+        position: relative;
+        top: 30px;
+        margin-left: 40vh;
+    }
+    .photo2{
+       display: none;
+    }
+    .username{
+        position: relative;
+        left: 10vh;
+    }
+    .logout{
+        position: relative;
+        left: 20vh;
+    }
+    .videodiv{
+        margin-left: 270px;
+    }
+    }
+    @media (max-width:770px) {
+    .photo{
+        margin-left: 10px;
+    }
+    .videodiv{
+        margin-left: 10px;
+    }
+    }
+    @media (max-width:500px) {
+        .username{
+            display: none;
+        }
+        .logout{
+            display: none;
+        }
+    }
+    @media (max-width:400px) {
+        .username{
+            display: none;
+        }
+        .logout{
+            display: none;
+        }
+    }
+</style>
+{% endblock style %}
+
+{% block body %}
+{% load static %}
+<div class="div1">
+    <a href="#">For you</a>
+    <a href="#">Following</a>
+</div>
+
+<a href="#"><img src="/media/{{ userdata.image}}" class="photo"></a>
+<a href="{% url "profile" %}"><img src="/media/{{ userdata.image }}" class="photo2"></a>
+<a href="profile" class="username">{{ userdata.fullname }}</a>
+<a href="{% url "insta" %}" class="logout">Switch</a>
+
+<div class="videodiv">
+    {% for video in videos %}
+        <video src="/media/{{video.video}}" width='200px' controls></video><br>
+    {% endfor %}
+</div>
+
+
+
+</div>
+{% endblock body %}

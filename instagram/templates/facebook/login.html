@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram | login</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static "img/icon.avif" %}">
+    <style>
+        .accountdiv{
+            background-image: linear-gradient(lightgray,lightblue);
+            padding: 30px;
+            width: 50vh;
+            height: 25vh;
+            margin-left: 70vh;
+            margin-top: 40vh;
+            border-radius: 2rem;
+        }
+        .password{
+            border: 1px solid lightgray;
+            width: 300px;
+            height: 30px;
+            border-radius: 10px;
+            margin-right:30px ;
+            padding: 5px;
+        }
+        .password:hover{
+            border: 2px solid aquamarine;
+        }
+        button{
+            margin-top: 10px;
+            margin-left: 250px;
+            padding: 10px;
+            color: black;
+            background-color: greenyellow;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+        }
+        button:hover{
+            background-color: red;
+            color: white;
+            font-weight: bolder;
+        }
+        @media (max-width:990px) {
+            .accountdiv{
+            margin-left: 50vh;
+        }
+        }
+        @media (max-width:770px) {
+            .accountdiv{
+            margin-left: 20vh;
+        }
+        }
+        @media (max-width:550px) {
+            .accountdiv{
+            margin-left: 2vh;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="accountdiv">
+        <h2>Enter Password for {{ username }}</h2>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input type="password" name="password" class="password" placeholder="Enter Password..."><br>
+            <button type="submit">Log In</button>
+        </form>
+        {% if messages %}
+                {% for message in messages %}
+                    <span{% if message.tags %} class="{{ message.tags }}"{% endif %} style='color:red; font-weight: bolder; margin-top: 10px;'>{{ message }}</span>
+                {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>
